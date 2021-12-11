@@ -183,7 +183,8 @@ class EmployManagementSystem
     obj1.menu();
 
     /*** Initialising loop for Menu Choices ***/
-    while(i<6)
+    /*** decommente cette section pour test aprofondit ***/
+   /*** while(i<6)
     {
 
       System.out.print("\nPlease Enter choice :");
@@ -271,7 +272,7 @@ class EmployManagementSystem
           CodeExit obj = new CodeExit();
           obj.out();
         }
-      }
+      } ***/
     }
   }
 }
