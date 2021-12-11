@@ -16,7 +16,7 @@ node {
    	def SCANNER_HOME = tool 'SonarQubeScanner';
          
 	withSonarQubeEnv(sonarqube)(
-	sh "${SCANNER_HOME}/bin/sonar-scanner \
+	 sh "${tool("SonarQubeScanner")}/bin/sonar-scanner \
 	-Dsonar.projectKey=Projet-jenkins-sonar \
 	-Dsonar.login=admin \
 	-Dsonar.password=sonar \
