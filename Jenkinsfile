@@ -1,24 +1,24 @@
 pipeline {
 	agent any
 
-	Stages {
-		Stage('Clone'){
+	stages{
+		stage('Clone'){
 			Steps{
 		sh "rm -rf"
 		sh "git clone https://github.com/steevCpp/my-jenkins-file"
 	}
-	Stage('build'){
+	stage('build'){
 		sh 'javac EmployManagementSystem.java'
 	}
-	Stage('Run'){
+	stage('Run'){
 		sh 'java EmployManagementSystem'
 	}
 					
-	Stage('Sonarqube') {
+	stage('Sonarqube') {
    	 environment {
      	   scannerHome = tool 'SonarQubeScanner'
   	  }
-  	  Steps {
+  	  steps {
   	      withSonarQubeEnv('sonarqube') {
   	          sh "${scannerHome}/bin/sonar-scanner"
   	      }
