@@ -6,7 +6,8 @@ pipeline {
 			steps{
 		sh "rm -rf"
 		sh "git clone https://github.com/steevCpp/my-jenkins-file"
-	}
+			}
+		}
 		stage('build'){
 			sh 'javac EmployManagementSystem.java'
 	}
@@ -27,6 +28,6 @@ pipeline {
  	       }
 	    }
 	}
-}
+
 	}
 }
