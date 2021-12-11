@@ -10,11 +10,11 @@ node {
 	}
 
         stage('Qualite'){
-        sh label :'', script :'sonar.projectKey = Projet-jenkins-sonar \
-sonar.login = admin \
-sonar.password = sonar \
-sonar.sources = /var/lib/jenkins/workspace/testing \
-sonar.host.url = http://79.137.37.34:9000 '
+        sh label :'', script :'-Dsonar.projectKey=Projet-jenkins-sonar \
+-Dsonar.login=admin \
+-Dsonar.password=sonar \
+-Dsonar.sources = /var/lib/jenkins/workspace/testing \
+-Dsonar.host.url = http://79.137.37.34:9000 '
         }
 
 }
