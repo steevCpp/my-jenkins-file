@@ -12,7 +12,7 @@ node {
         stage('Qualite'){
 			steps{
 				script{         
-	withSonarQubeEnv(sonarqube)(
+	withSonarQubeEnv(SonarQube)(
 	sh "${tool("SonarQubeScanner")}/bin/sonar-scanner \
 	-Dsonar.projectKey=Projet-jenkins-sonar \
 	-Dsonar.login=admin \
