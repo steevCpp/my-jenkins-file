@@ -11,12 +11,9 @@ node {
 
         stage('Qualite'){
 			steps{
-				script{
-  	
-   	def SCANNER_HOME = tool 'SonarQubeScanner';
-         
+				script{         
 	withSonarQubeEnv(sonarqube)(
-	 sh "${tool("SonarQubeScanner")}/bin/sonar-scanner \
+	sh "${tool("SonarQubeScanner")}/bin/sonar-scanner \
 	-Dsonar.projectKey=Projet-jenkins-sonar \
 	-Dsonar.login=admin \
 	-Dsonar.password=sonar \
