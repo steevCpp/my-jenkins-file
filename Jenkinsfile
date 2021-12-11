@@ -11,12 +11,11 @@ node {
 
         stage('Qualite'){
   	environment {
-   	 SCANNER_HOME = tool 'SonarQubeScanner'
+   	SCANNER_HOME = tool 'SonarQubeScanner'
          }
 	
 	withSonarQuebEnv(sonarqube)(
-	 
-	 sh label:'', script:' ${SCANNER_HOME}/bin/sonar-scanner \
+	sh label:'', script:'${SCANNER_HOME}/bin/sonar-scanner \
 	-Dsonar.projectKey=Projet-jenkins-sonar \
 	-Dsonar.login=admin \
 	-Dsonar.password=sonar \
