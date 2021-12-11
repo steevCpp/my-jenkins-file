@@ -194,16 +194,16 @@ class EmployManagementSystem
      /* switch(i)
       {
         case 1:
-        {
+        { */
         /** Creating class's object and calling Function using that object **/
-        Employee_Add ep =new Employee_Add();
+      /*  Employee_Add ep =new Employee_Add();
         ep.createFile();
 
         System.out.print("\033[H\033[2J");
         obj1.menu();
         break;
-        }
-        case 2:
+        } */
+       /* case 2:
         {
           System.out.print("\nPlease Enter Employee's ID :");
           String s=sc.nextLine();
