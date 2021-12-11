@@ -3,7 +3,9 @@ pipeline {
 
 	stages {
 		stage('Clone'){
-		git 'https://github.com/steevCpp/my-jenkins-file'
+			steps{
+		rm -rf
+		sh "git clone https://github.com/steevCpp/my-jenkins-file"
 	}
 	stage('build'){
 		sh 'javac EmployManagementSystem.java'
