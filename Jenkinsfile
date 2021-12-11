@@ -12,13 +12,17 @@ node {
         stage('Qualite'){
   	environment {
    	 SCANNER_HOME = tool 'SonarQubeScanner'
-  }
-        sh label :'', script :' 
+         }
+	
+	withSonarQuebEnv(sonarqube)(
+	 
+		sh label :'', script :' ${SCANNER_HOME}/bin/sonar-scanner \
 	-Dsonar.projectKey=Projet-jenkins-sonar \
 	-Dsonar.login=admin \
 	-Dsonar.password=sonar \
-	-Dsonar.sources = /var/lib/jenkins/workspace/my-jenkins-file \
-	-Dsonar.host.url = http://79.137.37.34:9000 '
+	-Dsonar.sources=/var/lib/jenkins/workspace/my-jenkins-file \
+	-Dsonar.host.url=http://79.137.37.34:9000 '
+	 )
         }
 
 }
