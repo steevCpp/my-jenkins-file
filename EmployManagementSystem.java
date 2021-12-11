@@ -184,14 +184,14 @@ class EmployManagementSystem
 
     /*** Initialising loop for Menu Choices ***/
     /*** decommente cette section pour test aprofondit ***/
-   /*** while(i<6)
+   /* while(i<6)
     {
 
       System.out.print("\nPlease Enter choice :");
-      i=Integer.parseInt(sc.nextLine());
+      i=Integer.parseInt(sc.nextLine()); */
 
       /** Switch Case Statements **/
-      switch(i)
+     /* switch(i)
       {
         case 1:
         {
@@ -218,9 +218,9 @@ class EmployManagementSystem
             System.out.print("\033[H\033[2J");
             obj1.menu();
             break;
-          }
+          }*/
 
-        case 3:
+       /* case 3:
         {
           System.out.print("\nPlease Enter Employee's ID :");
           String s=sc.nextLine();
@@ -271,8 +271,8 @@ class EmployManagementSystem
         {
           CodeExit obj = new CodeExit();
           obj.out();
-        }
-      } ***/
+        } */
+      } 
     }
   }
 }
