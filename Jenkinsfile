@@ -1,23 +1,30 @@
-node {
-	stage('Clone'){
-	git 'https://github.com/steevCpp/my-jenkins-file'
+pipeline {
+	any agent
+
+	stages {
+		stage('Clone'){
+		git 'https://github.com/steevCpp/my-jenkins-file'
 	}
-	stage('Build'){
-		sh label:'', script:'javac EmployManagementSystem.java'
+	stage('build'){
+		sh 'javac EmployManagementSystem.java'
 	}
 	stage('Run'){
-	sh label:'', script: 'java EmployManagementSystem'
+		sh 'java EmployManagementSystem'
 	}
-
-        stage('Qualite'){
-	 	sh label:'', script:'${scannerHome}/bin/sonar-scanner \
-		-Dsonar.projectKey=Projet-jenkins-sonar \
-		-Dsonar.login=admin \
-		-Dsonar.password=sonar \
-		-Dsonar.sources=/var/lib/jenkins/workspace/my-jenkins-file \
-		-Dsonar.host.url=http://79.137.37.34:9000 '
-				 }
 					
-
+	stage('Sonarqube') {
+   	 environment {
+     	   scannerHome = tool 'SonarQubeScanner'
+  	  }
+  	  steps {
+  	      withSonarQubeEnv('sonarqube') {
+  	          sh "${scannerHome}/bin/sonar-scanner"
+  	      }
+  	      timeout(time: 2, unit: 'MINUTES') {
+ 	           waitForQualityGate abortPipeline: true
+ 	       }
+	    }
+	}
 }
+
 
