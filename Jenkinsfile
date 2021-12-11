@@ -4,15 +4,15 @@ pipeline {
 	stages{
 		stage('Clone'){
 			steps{
-		sh "rm -rf"
-		sh "git clone https://github.com/steevCpp/my-jenkins-file"
+			sh"rm -rf"
+			sh"git clone https://github.com/steevCpp/my-jenkins-file"
 			}
 		}
 		stage('build'){
-			sh 'javac EmployManagementSystem.java'
+			sh'javac EmployManagementSystem.java'
 	}
 		stage('Run'){
-			sh 'java EmployManagementSystem'
+			sh'java EmployManagementSystem'
 	}
 					
 		stage('Sonarqube'){
@@ -21,7 +21,7 @@ pipeline {
   		  }
   		  steps{
   		      withSonarQubeEnv('sonarqube') {
-  		          sh "${scannerHome}/bin/sonar-scanner"
+  		          sh"${scannerHome}/bin/sonar-scanner"
   		      }
   		      timeout(time: 2, unit: 'MINUTES') {
  		           waitForQualityGate abortPipeline: true
