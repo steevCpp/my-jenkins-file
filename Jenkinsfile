@@ -10,8 +10,7 @@ node {
 	}
 
         stage('Qualite'){
-	 sh label:'', script: '${tool("SonarQubeScanner")}/bin/sonar-scanner \
-	-Dsonar.projectKey=Projet-jenkins-sonar \
+	 sh label:'', script: '-Dsonar.projectKey=Projet-jenkins-sonar \
 	-Dsonar.login=admin \
 	-Dsonar.password=sonar \
 	-Dsonar.sources=/var/lib/jenkins/workspace/my-jenkins-file \
