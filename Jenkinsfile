@@ -1,10 +1,10 @@
 pipeline {
-	any agent
+	agent any
 
 	stages {
 		stage('Clone'){
 			steps{
-		rm -rf
+		sh "rm -rf"
 		sh "git clone https://github.com/steevCpp/my-jenkins-file"
 	}
 	stage('build'){
