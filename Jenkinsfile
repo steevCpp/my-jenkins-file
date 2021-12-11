@@ -10,19 +10,17 @@ node {
 	}
 
         stage('Qualite'){
-			steps{
-				script{         
-	withSonarQubeEnv(SonarQube)(
-	sh "${tool("SonarQubeScanner")}/bin/sonar-scanner \
+	 sh label:'', script: '${tool("SonarQubeScanner")}/bin/sonar-scanner \
 	-Dsonar.projectKey=Projet-jenkins-sonar \
 	-Dsonar.login=admin \
 	-Dsonar.password=sonar \
 	-Dsonar.sources=/var/lib/jenkins/workspace/my-jenkins-file \
-	-Dsonar.host.url=http://79.137.37.34:9000 "
-	 )
-        }
-		}
-			}
+	-Dsonar.host.url=http://79.137.37.34:9000 '
+	}
+
+        
+		
+			
 
 }
 
