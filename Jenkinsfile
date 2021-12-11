@@ -16,7 +16,7 @@ node {
 	
 	withSonarQuebEnv(sonarqube)(
 	 
-	 sh label:'', script :' ${SCANNER_HOME}/bin/sonar-scanner \
+	 sh label:'', script:' ${SCANNER_HOME}/bin/sonar-scanner \
 	-Dsonar.projectKey=Projet-jenkins-sonar \
 	-Dsonar.login=admin \
 	-Dsonar.password=sonar \
