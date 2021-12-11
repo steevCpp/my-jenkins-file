@@ -10,15 +10,13 @@ node {
 	}
 
         stage('Qualite'){
-		def scannerHome=tool'SonarScanner 4.0';
-		withSonarQubeEnv(http://79.137.37.34:9000){
-	 	sh '${scannerHome}/bin/sonar-scanner \
+	 	sh label:'', script:'${scannerHome}/bin/sonar-scanner \
 		-Dsonar.projectKey=Projet-jenkins-sonar \
 		-Dsonar.login=admin \
 		-Dsonar.password=sonar \
 		-Dsonar.sources=/var/lib/jenkins/workspace/my-jenkins-file \
 		-Dsonar.host.url=http://79.137.37.34:9000 '
-				 }}
+				 }
 					
 
 }
