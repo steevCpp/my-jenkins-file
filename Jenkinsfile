@@ -10,16 +10,16 @@ node {
 	}
 
         stage('Qualite'){
-	 sh label:'', script: '-Dsonar.projectKey=Projet-jenkins-sonar \
-	-Dsonar.login=admin \
-	-Dsonar.password=sonar \
-	-Dsonar.sources=/var/lib/jenkins/workspace/my-jenkins-file \
-	-Dsonar.host.url=http://79.137.37.34:9000 '
-	}
-
-        
-		
-			
+		def scannerHome=tool'SonarScanner 4.0';
+		withSonarQubeEnv(http://79.137.37.34:9000){
+	 	sh label:'', script: '${scannerHome}/bin/sonar-scanner \
+		-Dsonar.projectKey=Projet-jenkins-sonar \
+		-Dsonar.login=admin \
+		-Dsonar.password=sonar \
+		-Dsonar.sources=/var/lib/jenkins/workspace/my-jenkins-file \
+		-Dsonar.host.url=http://79.137.37.34:9000 '
+				 }}
+					
 
 }
 
