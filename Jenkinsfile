@@ -1,10 +1,17 @@
 
 node
 {
-    stage('clonning from GIT'){
+    stage('Clone Github'){
 git branch: 'master', credentialsId: 'GIT_REPO', url: 'https://github.com/steevCpp/my-jenkins-file'
      }
 
+    stage('Build'){
+    sh " javac EmployManagementSystem.java "
+     }
+     stage('Run'){
+    sh " java EmployManagementSystem"
+     }
+    
 stage('SonarQube Analysis') {
     def scannerHome = tool 'sonarqube'
       withSonarQubeEnv('sonarqube') {
